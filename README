@@ -1,7 +1,7 @@
 // Inicio do programa (main.py)
 
     - Configuração da Urna Eletrônica (config.py)
-        - Se config.txt existe, leia as configurações, senão crie config.txt e inicialize o Modo Configuração
+        - Se config.json existe, leia as configurações, senão crie config.json e inicialize o Modo Configuração
             - Configurar:
                 - Período de votação(Horário ou quantidade de votantes)
                 - O tema da votação e suas opções de voto.
@@ -10,20 +10,20 @@
     - Geração da Zerésima (zeresima.py)
         - Identificar a votação (Mostrar o tema).
         - Eleitores Aptos se utilizada a configuração de quantidade de votantes.
-        - Código de Identificação (Salva a Zerésima em um arquivo zeresima{CodID}.txt)
+        - Código de Identificação (Salva a Zerésima em um arquivo zeresima{CodID}.json)
         - Data / Hora
         - Leitura de Zerésima via Código de Identificação
     
     - Geração de Resultados (results.py)
         - Formatar o resultado para apresentar a quantidade de votos absoluta e percentual.
         - Gerar um Código de Identificação 
-        - Salvar os resultados da votação em um arquivo results{CodID}.txt
+        - Salvar os resultados da votação em um arquivo results{CodID}.json
         - Leitura de resultados via Código de Identificação
     
     - Sistema de votação
-        - Iniciar Urna Eletrônica (Só consegue iniciar após config.txt e zeresimaCodID.txt existem)
+        - Iniciar Urna Eletrônica (Só consegue iniciar após config.json e zeresimaCodID.json existem)
         - Exigir nome do votante, confirmação de presença de voto (True / False)
-        - Se config.txt, exigir CPF válido, pedir o CPF do votante e validar.
+        - Se config.json, exigir CPF válido, pedir o CPF do votante e validar.
             - Se o CPF for inválido, impedir o voto e exigir um CPF válido.
         - Exigir o voto (Mostra a opção que o votante escolheu e pede para confirmar o voto)
         - Exibe mensagem de voto confirmado.

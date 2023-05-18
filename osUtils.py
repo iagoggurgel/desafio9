@@ -1,8 +1,8 @@
 from os import path, system
 
 def clearScreen():
-    system("clear")
+    system("clear || cls")
 
-def pathExists(path):
-    myBool = path.exists(path)
+def pathExists(filePath):
+    myBool = path.exists(filePath)
     return myBool
