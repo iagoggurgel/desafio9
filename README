@@ -27,3 +27,8 @@
             - Se o CPF for inválido, impedir o voto e exigir um CPF válido.
         - Exigir o voto (Mostra a opção que o votante escolheu e pede para confirmar o voto)
         - Exibe mensagem de voto confirmado.
+
+
+To-Do: 
+    - Trabalhar em diminuir a função configStart()
+    - Usar o delayScreen com o len(listOfCandidates) * 1 segundo
