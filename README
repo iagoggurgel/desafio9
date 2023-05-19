@@ -30,5 +30,5 @@
 
 
 To-Do: 
-    - Trabalhar em diminuir a função configStart()
-    - Usar o delayScreen com o len(listOfCandidates) * 1 segundo
+    - Trabalhar em diminuir a função configStart() **
+    - Formatar melhor printCandidates()
