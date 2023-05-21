@@ -1,15 +1,17 @@
 from osUtils import *
+from dateUtils import *
 
 configDict = dict({
         "theme" : None,
         "candidates" : None,
+        "votingPeriod" : None,
         "configMade" : False
 })
 candidatesList = list()
 
 def validateConfigs():
     valuesList = list(configDict.values())
-    if (not None in valuesList) and (valuesList[1] != []):
+    if (not None in valuesList) and ([] not in valuesList):
         configDict["configMade"] = True
     else:
         configDict["configMade"] = False
@@ -43,6 +45,7 @@ def configStart():
             case "2":
                 configCandidates()
             case "3":
+                configPeriod()
                 break
             case "6":
                 break # Implementar método de teste com configsMade
@@ -145,3 +148,17 @@ def searchCandidate(candidateName):
 
 def configPeriod():
     clearScreen()
+    print("Configurar o período de votação")
+    print()
+    print(" 1 - Votação por período de tempo")
+    print(" 2 - Votação por número de pessoas votantes")
+    print(" 3 - Sair")
+    print()
+    caseInput = input("Digite a opção escolhida: ")
+    match caseInput:
+        case "1":
+            break
+
+
+def configDates():
+    
