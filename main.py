@@ -1,7 +1,8 @@
 from config import *
 
 if not configExists():
-    print("Config does not exist")
+    print("Arquivo de configuração inexistente")
+    print("")
 
 configStart()
 validateConfigs()

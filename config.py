@@ -3,6 +3,7 @@ from dateUtils import *
 from jsonUtils import *
 
 configDict = dict({
+        "configName" : None,
         "theme" : None,
         "candidates" : None,
         "votingPeriod" : None,
@@ -50,10 +51,12 @@ def configStart():
                 configPeriod()
             case "4":
                 configValidCPF()
+            case "5":
+                configName()
             case "6":
-                if configDict["configMade"] == True:
+                if configDict["configMade"] == True and False:
                     jsonSaveConfig(configDict)
-                    break
+                break
     print(configDict)
 
 def configScreen():
@@ -63,7 +66,7 @@ def configScreen():
     print(" 2 - Configurar os candidatos")
     print(" 3 - Configurar o período de votação")
     print(" 4 - Confirmar a necessidade de validação de CPF")
-    print(" 5 - Usar configuração existente")
+    print(" 5 - Nomeie esta configuração")
     print(" 6 - Finalizar configuração") if configDict["configMade"] else None
     print()
 
@@ -166,8 +169,6 @@ def configPeriod():
         case "2":
             periodVoters()
 
-
-
 def periodDates():
     clearScreen()
     print("Configurando por período de votação")
@@ -200,3 +201,10 @@ def configValidCPF():
         configDict["validateCPF"] = False
     else:
         print("Valor inválido!")
+
+def configName():
+    clearScreen()
+    print("Configurando o nome dessa configuração da Urna Eletrônica")
+    print()
+    name = input("Digite o nome desejado: ")
+    configDict["configName"] = name
