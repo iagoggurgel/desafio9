@@ -1,11 +1,13 @@
 from osUtils import *
 from dateUtils import *
+from jsonUtils import *
 
 configDict = dict({
         "theme" : None,
         "candidates" : None,
         "votingPeriod" : None,
-        "configMade" : False
+        "configMade" : False,
+        "validateCPF" : None
 })
 candidatesList = list()
 
@@ -46,9 +48,12 @@ def configStart():
                 configCandidates()
             case "3":
                 configPeriod()
-                break
+            case "4":
+                configValidCPF()
             case "6":
-                break # Implementar método de teste com configsMade
+                if configDict["configMade"] == True:
+                    jsonSaveConfig(configDict)
+                    break
     print(configDict)
 
 def configScreen():
@@ -157,8 +162,41 @@ def configPeriod():
     caseInput = input("Digite a opção escolhida: ")
     match caseInput:
         case "1":
-            break
+            periodDates()
+        case "2":
+            periodVoters()
 
 
-def configDates():
+
+def periodDates():
+    clearScreen()
+    print("Configurando por período de votação")
+    print()
+    print("Digite a data de início da votação abaixo")
+    startDate = receiveDate()
+    print()
+    print("Digite a data de término da votação abaixo")
+    endDate = receiveDate()
     
+    configDict["votingPeriod"] = dict({"startingDate" : startDate, "endingDate" : endDate})
+
+def periodVoters():
+    clearScreen()
+    print("Configurando por número de pessoas")
+    print()
+    votersNumber = int(input("Digite o número de votantes: "))
+    print()
+    configDict["votingPeriod"] = votersNumber
+
+def configValidCPF():
+    clearScreen()
+    print("Configurando a necessidade de validação do CPF")
+    print()
+    print("Será necessário realizar a confirmação? (S / N)")
+    decisionInput = input("Digite aqui sua escolha: ")
+    if decisionInput.upper() == "S":
+        configDict["validateCPF"] = True
+    elif decisionInput.upper() == "N":
+        configDict["validateCPF"] = False
+    else:
+        print("Valor inválido!")
